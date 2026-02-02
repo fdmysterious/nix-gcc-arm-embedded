@@ -1,13 +1,13 @@
-{ system, lib, stdenv, fetchurl, autoPatchelfHook, glibc, zlib, ncurses, zstd, xz, libxcrypt, libxcrypt-legacy }:
+{ lib, stdenv, fetchurl, autoPatchelfHook, glibc, zlib, ncurses, zstd, xz, libxcrypt, libxcrypt-legacy }:
 let
 	oldPkgs = import
 		(builtins.fetchTarball {
 			url = "https://github.com/NixOS/nixpkgs/archive/23.11.tar.gz";
 			sha256 = "sha256:1ndiv385w1qyb3b18vw13991fzb9wg4cl21wglk89grsfsnra41k";
-		}) { system = system; };
+		}) { system = stdenv.hostPlatform.system; };
 in
 	stdenv.mkDerivation {
-		pname = "gcc-aarch64-none-elf";
+		pname = "aarch64-none-elf";
 		version = "15.2.rel1";
 
 		src = fetchurl {
