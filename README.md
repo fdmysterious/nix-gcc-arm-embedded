@@ -7,5 +7,7 @@ This is a small attempt at packaging arm-provided compilers for baremetal arm ta
 
 The following packages are provided:
 
-- `aarch64-non-elf`: Baremetal compiler
 - `arn-none-eabi`: Baremetal compiler for arm 32 bit architectures (also given by https://github.com/NixOS/nixpkgs/blob/nixos-25.11/pkgs/by-name/gc/gcc-arm-embedded-14/package.nix
+- `aarch64-none-elf`: Baremetal compiler
+
+**Please note**: I am not a nix expert. There is probably room for improvement.
