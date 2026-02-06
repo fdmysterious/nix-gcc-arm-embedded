@@ -1,12 +1,17 @@
 {
-  description = "My custom packages";
+  description = "gcc packages for baremetal applications on arm architectures";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  inputs.flake-compat = {
+	  url = "github:NixOS/flake-compat";
+	  flake = false;
+  };
+
+  outputs = { self, nixpkgs, flake-compat }:
     let
       forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"
+        "x86_64-linux" #"aarch64-linux" "x86_64-darwin" "aarch64-darwin"
       ];
     in
     {
